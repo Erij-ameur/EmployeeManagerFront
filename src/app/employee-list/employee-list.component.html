@@ -1,0 +1,38 @@
+<app-navbar></app-navbar>
+<div class="container" id="main-container">
+   <div class="search">
+      <form class="form-inline my-2 my-lg-0" id="search-container">
+         <input style="width: 8cm" name=key class="form-control mr-sm-2" (ngModelChange)="searchEmployee(key.value)"
+            #key="ngModel" ngModel type="search" placeholder="Search here">
+      </form>
+   </div>
+
+
+   <div class="row">
+      <div *ngFor="let employee of employees" class="col-md-6 col-xl-3">
+         <div class="card m-b-30">
+            <div class="card-body row">
+               <div class="col-6">
+                  <a href=""><img src="{{employee?.imageUrl}}" alt="" class="img-fluid rounded-circle w-60"></a>
+               </div>
+               <div class="col-6 card-title align-self-center mb-0">
+                  <h5>{{employee?.name}}</h5>
+                  <p class="m-0">{{employee?.jobTitle}}</p>
+               </div>
+            </div>
+            <ul class="list-group list-group-flush">
+               <li class="list-group-item"><i class="fa fa-envelope float-right"></i>{{employee?.email}}</li>
+               <li class="list-group-item"><i class="fa fa-phone float-right"></i>Phone : {{employee?.phone}}</li>
+            </ul>
+            <div class="card-body">
+               <button (click)="onEdit(employee.id)" class="btn btn-primary tooltips" data-placement="top"
+                  data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil"></i> </button>
+               <button (click)="onDelete(employee.id)" class="btn btn-danger tooltips" data-placement="top"
+                  data-toggle="tooltip" data-original-title="Delete"><i class="fa fa-trash"></i></button>
+               <button (click)="onInfo(employee.id)" class="btn btn-secondary tooltips"><i
+                     class="fa fa-info-circle"></i></button>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>

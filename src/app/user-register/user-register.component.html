@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="text-center">
+    <h1 class="h4 text-gray-900 mb-4">Register</h1>
+  </div>
+  <div class="col-md-6 offset-md-3">
+    <form #registerForm="ngForm" (ngSubmit)="userRegister(registerForm)">
+      <div class="form-group">
+        <label for="username">UserName</label>
+        <input type="text" ngModel name="username" class="form-control" id="username" placeholder="Enter username">
+        <small id="username" class="form-text text-muted">username</small>
+      </div>
+      <div class="form-group">
+        <label for="userPassword">userPassword</label>
+        <input type="password" ngModel name="userPassword" class="form-control" id="userPassword"
+          placeholder="Enter UserPassword">
+      </div>
+      
+        <button type="submit" class="btn btn-success" id="btnR">Register</button>
+      
+    </form>
+    <div class="text-center">
+      <a class="small" href="login">Already have an account? Login!</a>
+    </div>
+  </div>
+</div>
